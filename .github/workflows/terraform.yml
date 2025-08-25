@@ -28,9 +28,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id:     ${{ stepses.ss.outputs.AK }}
-          aws-secret-access-key: ${{ stepses.ss.outputs.SK }}
-          aws-session-token:     ${{ stepses.ss.outputs.ST }}
+          aws-access-key-id:     ${{ steps.sess.outputs.AK }}
+          aws-secret-access-key: ${{ steps.sess.outputs.SK }}
+          aws-session-token:     ${{ steps.sess.outputs.ST }}
           aws-region: us-east-1
 
       - name: Setup Terraform
@@ -47,7 +47,6 @@ jobs:
         continue-on-error: true
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
 
       - name: Terraform Destroy
