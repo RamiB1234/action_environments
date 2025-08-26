@@ -7,4 +7,8 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.hello # Points to the 'hello' function within 'handler.js'
+    events:
+      - httpApi:
+          path: /hello
+          method: get
