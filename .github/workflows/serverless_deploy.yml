@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm ci
-        npm install -g serverless
+        npm install -g serverless@3.36.0
 
     - name: Deploy to AWS Lambda using Serverless Framework
       run: | 
