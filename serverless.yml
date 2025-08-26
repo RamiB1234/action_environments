@@ -1,4 +1,4 @@
-service: my-lambda-service
+service: my-lambda-service-3232
 
 provider:
   name: aws
